@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flex demo</title>
+	<style>
+		.parent{
+			width: 600px;
+			height: 150px;
+			display: flex;
+			justify-content:flex-end;
+			align-items:center;
+			border: 1px solid #ddd;
+		}
+
+		.child{
+			width: 100px;
+			background: #f60;
+		}
+		.child1{
+			height: 20px;
+		}
+		.child2{
+			height: 40px;
+		}
+		.child3{
+			height: 60px;
+		}
+		.child4{
+			height: 80px;
+		}
+		.child5{
+			height: 100px;
+		}
+		.flex-option{
+			display: flex;
+		}
+		ul{
+			list-style: none;
+		}
+		.table{
+			display: table;
+		}
+		.table-row{
+			display: table-row;
+		}
+		.table-row li{
+			display: table-cell;
+			text-align: center;
+			height: 40px;
+			border: 1px solid #ddd;
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="child child1">1</div>
+		<div class="child child2">2</div>
+		<div class="child child3">3</div>
+		<div class="child child4">4</div>
+		<div class="child child5">5</div>
+	</div>
+	<div class="option">
+		<div class="parent-opt">
+			<h2>父元素</h2>
+			<ul class="flex-option">
+				<li>
+					<label for="flex-direction">flex-direction</label>
+					<select name="flex-direction" id="flex-direction">
+						<option value="-1">null</option>
+						<option value="row">row</option>
+						<option value="row-reverse">row-reverse</option>
+						<option value="column">column</option>
+						<option value="column-reverse">column-revers</option>
+					</select>
+				</li>
+				<li>
+					<label for="flex-wrap">flex-wrap</label>
+					<select name="flex-wrap" id="flex-wrap">
+						<option value="-1">null</option>
+						<option value="wrap">wrap</option>
+						<option value="wrap-reverse">wrap-reverse</option>
+						<option value="nowrap">nowrap</option>
+					</select>
+				</li>
+				<li>
+					<label for="justify-content">justify-content</label>
+					<select name="justify-content" id="justify-content">
+						<option value="-1">null</option>
+						<option value="flex-start">flex-start</option>
+						<option value="flex-end">flex-end</option>
+						<option value="center">center</option>
+						<option value="space-between">space-between</option>
+						<option value="space-around">space-around</option>
+					</select>
+				</li>
+				<li>
+					<label for="align-content">align-content</label>
+					<select name="align-content" id="align-content">
+						<option value="-1">null</option>
+						<option value="flex-start">flex-start</option>
+						<option value="flex-end">flex-end</option>
+						<option value="center">center</option>
+						<option value="space-between">space-between</option>
+						<option value="space-around">space-around</option>
+					</select>
+				</li>
+				<li>
+					<label for="align-items">align-items</label>
+					<select name="align-items" id="align-items">
+						<option value="-1">null</option>
+						<option value="flex-start">flex-start</option>
+						<option value="flex-end">flex-end</option>
+						<option value="center">center</option>
+						<option value="baseline">baseline</option>
+						<option value="stretch">stretch</option>
+					</select>
+				</li>
+			</ul>
+		</div>
+		<div class="child-opt">
+			<h2>子元素</h2>
+			<div class="table">
+				<ul class="table-row">
+					<li>元素</li>
+					<li>order</li>
+					<li>flex-grow</li>
+					<li>flex-shrink</li>
+					<li>flex-basis</li>
+					<li>align-self</li>
+				</ul>
+				<ul class="table-row">
+					<li>1</li>
+					<li><input type="range" min="0" max="5" value="1" name="order-1"></li>
+					<li><input type="range" min="0" max="5" value="0" name="flex-grow-1"></li>
+					<li><input type="range" min="0" max="5" value="0" name="flex-shrink-1"></li>
+					<li><input type="range" min="0" max="5" value="0" name="flex-basis-1"></li>
+					<li></li>
+				</ul>
+				<ul class="table-row">
+					<li>2</li>
+					<li><input type="range" min="0" max="5" value="2" name="order-2"></li>
+					<li><input type="range" min="0" max="5" value="0" name="flex-grow-2"></li>
+					<li><input type="range" min="0" max="5" value="0" name="flex-shrink-2"></li>
+					<li><input type="range" min="0" max="5" value="0" name="flex-basis-2"></li>
+					<li></li>
+				</ul>
+				<ul class="table-row">
+					<li>3</li>
+					<li><input type="range" min="0" max="5" value="3" name="order-3"></li>
+					<li><input type="range" min="0" max="5" value="0" name="flex-grow-3"></li>
+					<li><input type="range" min="0" max="5" value="0" name="flex-shrink-3"></li>
+					<li><input type="range" min="0" max="5" value="0" name="flex-basis-3"></li>
+					<li></li>
+				</ul>
+				<ul class="table-row">
+					<li>4</li>
+					<li><input type="range" min="0" max="5" value="4" name="order-4"></li>
+					<li><input type="range" min="0" max="5" value="0" name="flex-grow-4"></li>
+					<li><input type="range" min="0" max="5" value="0" name="flex-shrink-4"></li>
+					<li><input type="range" min="0" max="5" value="0" name="flex-basis-4"></li>
+					<li></li>
+				</ul>
+				<ul class="table-row">
+					<li>5</li>
+					<li><input type="range" min="0" max="5" value="5" name="order-5"></li>
+					<li><input type="range" min="0" max="5" value="0" name="flex-grow-5"></li>
+					<li><input type="range" min="0" max="5" value="0" name="flex-shrink-5"></li>
+					<li><input type="range" min="0" max="5" value="0" name="flex-basis-5"></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+		<button id="apply">apply</button>
+	</div>
+</body>
+<script>
+
+	function FlexDemo(){
+		this.parentOpt = document.querySelector('.flex-option');
+		this.childOpt = document.querySelector('.child-opt');
+		this.parentEle = document.querySelector('.parent');
+		this.children = document.querySelectorAll('.child');
+	}
+
+	FlexDemo.prototype = {
+		init:function(){
+			this._bindParentEvent()._bindChildrenEvent();
+		},
+
+		changeParent:function(){
+			var style = this._getSelectParentStyle();
+			this._setParentStyle(style);
+			return this;
+			
+		},
+		changeChildren:function(){
+			var children = this.children;
+
+			for(var i = 0; i < children.length; i++){
+				var style = this._getChildStyle(i+1);
+				this._setElementStyle(children[i],style);
+			}
+			return this;
+		},
+		_bindParentEvent:function(){
+			this.parentOpt.addEventListener('change',function(e){
+				var target = e.target;
+				if(target.tagName.toLowerCase()==='select'){
+					this.changeParent();
+				}
+			}.bind(this));
+			return this;
+		},
+		_bindChildrenEvent:function(){
+			var apply = document.querySelector('#apply');
+			apply.addEventListener('click', function(e){
+				this.changeChildren();
+			}.bind(this));
+			this.childOpt.addEventListener('change', function(e){
+				var target = e.target;
+				console.log(target.type);
+				if(target.type.toLowerCase() === 'range'){
+					this.changeChildren();
+				}
+			}.bind(this));
+			return this;
+		},
+		_getSelectParentStyle:function(){
+			var options = this.parentOpt.querySelectorAll('select'),
+				styleArr = [],
+				styleStr;
+
+			for(var i = 0;i<options.length;i++){
+				var option = options[i],
+					name = option.name,
+					value = option.value;
+
+				if(value !== '-1'){
+					if(name === 'flex-wrap'){
+						styleArr.push('width:400px');
+					}
+					styleArr.push(name + ':' + value);
+				}else{
+					if(name === 'flex-wrap'){
+						styleArr.push('width:600px');
+					}
+				}
+			}
+			styleStr = styleArr.join(';');
+
+			return styleStr;
+		},
+	
+		_getChildStyle:function(index){
+			var props = ['order','flex-grow','flex-shrink','flex-basis'],
+				styleArr = [],
+				styleStr;
+			for(var i = 0 ;i < props.length; i++){
+				var ele = props[i],
+					value = document.querySelector('input[name='+ props[i] + '-' + index +']').value;
+
+				if(value !== '0'){
+					styleArr.push(ele + ':' + value);	 
+				}
+			}
+
+			styleStr = styleArr.join(';');
+			return styleStr;
+
+		},
+		_setParentStyle:function(style){
+			this._setElementStyle(this.parentEle,style);
+		},
+		_setElementStyle:function(ele,style){
+			ele.style = style;
+			return this;
+		},
+		reset:function(){
+			return this;
+		}
+
+	}
+
+	var flexDemo =new FlexDemo();
+	flexDemo.init();
+</script>
+</html>
