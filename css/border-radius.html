@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>border radius</title>
+	<style>
+		ul{
+			list-style: none;
+		}
+		.demo{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #ddd;
+			background: #f60;
+		}
+		.br10{
+			border-radius: 10px;
+		}
+		.br50{
+			border-radius: 50%;
+		}
+		.tuo{
+			width: 200px;
+			height: 100px;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<h3>圆角</h3>
+			<div class="demo br10"></div>
+		</li>
+		<li>
+			<h3>圆</h3>
+			<div class="demo br50"></div>
+		</li>
+		<li>
+			<h3>椭圆</h3>
+			<div class="demo tuo"></div>
+		</li>
+		<li>
+			<h3>自定义</h3>
+			<div class="demo custom-ele"></div>
+			<div class="custom-opt">
+				top-left: <input type="range" min="0" max="100" value="0" id="top-left">%
+				top-right: <input type="range" min="0" max="100" value="0" id="top-right">%
+				bottom-left: <input type="range" min="0" max="100" value="0" id="bottom-left">%
+				bottom-right: <input type="range" min="0" max="100" value="0" id="bottom-right">%
+			</div>
+		</li>
+	</ul>
+	<script>
+		function Demo(){
+			this.$parent = document.querySelector('.custom-opt');
+			this.$customEle = document.querySelector('.custom-ele');
+		}
+
+		Demo.prototype = {
+			init:function(){
+				this._bindEvent();
+				return this;
+			},
+			setStyle:function(){
+				var style = this._getStyle();
+				this.$customEle.style = style;
+				return this;
+				
+			},
+			_getStyle:function(){
+				var inputs = document.querySelectorAll('input[type=range]'),
+					styleArr = [],
+					styleStr;
+
+				for(var i = 0 ; i < inputs.length; i++){
+					var name = inputs[i].id,
+						value = inputs[i].value;
+
+					styleArr.push('border-'+ name +'-radius:' + value + '%');
+				}
+				styleStr = styleArr.join(';');
+				return styleStr;
+			},
+			_bindEvent:function(){
+				this.$parent.addEventListener('change', function(e){
+					var target = e.target;
+					if(target.type.toLowerCase() === 'range'){
+						this.setStyle();
+					}
+				}.bind(this));
+				return this;
+			}
+		}
+
+		new Demo().init();
+	</script>
+</body>
+</html>

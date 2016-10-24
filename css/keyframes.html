@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>keyframe</title>
+</head>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+		}
+		.changebg{
+			animation:changebg 5s ease-in infinite;
+		}
+		.changesize{
+			background: #f60;
+			animation:changesize 5s ease-in infinite;
+		}
+		.changepos{
+			position: relative;
+			background: #f60;
+			animation:changepos 5s ease-in infinite;
+		}
+		.changerotate{
+			background: #f60;
+			animation:changerotate 5s ease-in infinite;
+		}
+
+		@keyframes changebg{
+			0%   {background: red;}
+			25%  {background: yellow;}
+			50%  {background: blue;}
+			100% {background: green;}
+		}
+
+		@keyframes changesize{
+			0%  {width: 0;height: 0;}
+			50% {width: 100px;height: 100px;}
+			100% {width: 0;height: 0;}
+		}
+		@keyframes changepos{
+			0%  {left:0;}
+			50% {left:200px;}
+			100% {left:0;}
+		}
+		@keyframes changerotate{
+			0%  {transform:rotateY(0deg);}
+			50% {transform:rotateY(180deg);}
+			100% {transform:rotateY(360deg);}
+		}
+
+	</style>
+<body>
+	<ul>
+		<li>
+			<h3>change background</h3>
+			<div class="changebg">
+			</div>
+		</li>
+		<li>
+			<h3>change size</h3>
+			<div class="changesize">
+			</div>
+		</li>
+		<li>
+			<h3>change position</h3>
+			<div class="changepos">
+			</div>
+		</li>
+		<li>
+			<h3>change rotate()</h3>
+			<div class="changerotate">
+			</div>
+		</li>
+	</ul>
+</body>
+</html>

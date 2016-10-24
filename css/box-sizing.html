@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>box sizing</title>
+	<style>
+		.fl{
+			float: left;
+		}
+		.fl .demo{
+			padding: 10px;
+		}
+		.fr{
+			float: right;
+		}
+		.demo{
+			width: 100px;
+			height: 100px;
+			margin: 10px;
+			border: 1px solid #ddd;
+			background:  #f60;
+		}
+		.content-box{
+			-webkit-box-sizing:content-box;
+			box-sizing:content-box;
+		}
+		.border-box{
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="fl">
+		<div class="demo content-box">
+			content box
+			padding: 10px;
+		</div>
+		<div class="demo border-box">
+			border box
+			padding: 10px;
+		</div>
+	</div>
+	<div class="fr">
+		<div class="demo content-box">
+			content box
+			no padding
+		</div>
+		<div class="demo border-box">
+			border box
+			no padding
+		</div>
+	</div>
+</body>
+</html>

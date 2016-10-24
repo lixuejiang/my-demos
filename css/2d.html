@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2d 变换</title>
+	<style>
+		.demo{
+			width: 100px;
+			height: 100px;
+			background: #f60;
+			margin-bottom: 20px;
+		}
+		.translate.active{
+			transform:translate(100px,100px);
+		}
+		.rotate.active{
+			transform:rotate(10deg);
+		}
+		.scale.active{
+			transform:scale(2,3);
+		}
+		.skew.active{
+			transform:skew(30deg,20deg);
+		}
+	</style>
+</head>
+<body>
+	<h2>2D变换</h2>
+	<ul>
+		<li>
+			<h3>translate，单击触发</h3>
+			<div class="demo translate">
+				translate(100px,100px)
+			</div>
+		</li>
+		<li>
+			<h3>rotate</h3>
+			<div class="demo rotate">
+				rotate()
+			</div>
+			<input type="range" min="0" max="360" id="rotate">
+		</li>
+		<li>
+			<h3>scale</h3>
+			<div class="demo scale">
+				scale(2,3)
+			</div>
+			x:<input type="range" min="0" max="360" id="scalex">
+			y:<input type="range" min="0" max="360" id="scaley">
+		</li>
+		<li>
+			<h3>skew</h3>
+			<div class="demo skew">
+				skew(30deg,60deg)
+			</div>
+			x:<input type="range" min="0" max="360" id="skewx">
+			y:<input type="range" min="0" max="360" id="skewy">
+		</li>
+	</ul>
+	<script>
+		function Demo(){
+			this.parentEl = document.querySelector('ul');
+			this.init();
+		}
+
+		Demo.prototype =  {
+			init:function(){
+				this._bindEvent();
+			},
+			_bindEvent:function(){
+				this.parentEl.addEventListener('click', function(e){
+					var target = e.target;
+					if(target.tagName.toLowerCase() === 'div' && target.className.indexOf('demo') !==-1){
+						this._toggleActive(target);
+						
+					}
+				}.bind(this));
+
+				document.querySelector('#rotate').addEventListener('change', function(e){
+					var target = e.target,
+						value = target.value;
+
+					console.log('change');
+					document.querySelector('.demo.rotate').style = 'transform:rotate(' + value +'deg)';	
+				});
+			},
+			_toggleActive:function(el){
+				if(el.className.indexOf('active') !== -1){
+					el.className = el.className.replace(/active/g,'');
+				}else{
+					el.className = el.className + ' active';
+				}
+			}
+		};
+
+		new Demo();
+	</script>
+</body>
+</html>
