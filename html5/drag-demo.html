@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>drag demo</title>
+	<style>
+		.container{
+			-moz-column-count:2; /* Firefox */
+			-webkit-column-count:2; /* Safari and Chrome */
+			column-count:2;
+		}
+		.container div{
+			height: 500px;
+			border: 1px solid #ddd;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="left">
+			<img src="http://ggbond.qiniudn.com/2016-10-24%2021:26:49.png" alt="" draggable="true" id="img"
+ondragstart="drag(event)">
+		</div>
+		<div class="right" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	</div>
+	<script>
+		
+		function drag(event){
+			event.dataTransfer.setData("Text",event.target.id);
+		}
+
+		function drop(event){
+			event.preventDefault();
+			var data=event.dataTransfer.getData("Text");
+			event.target.appendChild(document.getElementById(data));
+		}
+		function allowDrop(event){
+			event.preventDefault();
+		}
+	</script>
+</body>
+</html>

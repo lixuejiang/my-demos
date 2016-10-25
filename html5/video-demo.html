@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>video demo</title>
+</head>
+<body>
+	<video src="http://www.w3school.com.cn//i/movie.ogg" controls="controls" autoplay="true"></video>
+	<button>play</button>
+	<button>pause</button>
+	<div class="info"></div>
+	<script>
+		var video = document.querySelector('video'),
+			str = '',
+			info = document.querySelector('.info');
+
+		for(var i in video){
+			str += '<div>' + i + ":" + video [i] + '</div>'
+		}
+
+		info.innerHTML = str;
+	</script>
+</body>
+</html>

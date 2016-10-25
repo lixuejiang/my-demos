@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>form demo</title>
+	<style>
+		.container{
+			display: flex;
+		}
+		.input,.result{
+			width: 300px;
+			border:1px solid #ddd;
+		}
+		ul{
+			list-style: none;
+			padding-top: 10px;
+		}
+		ul li{
+			margin-bottom: 10px;
+		}
+
+	</style>
+	<script>
+		function changeValue(id){
+			var valId = id + '-val';
+			document.querySelector('#' + valId).innerText = document.querySelector('#' + id).value;
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<form action="">
+			<ul class="input">
+				<li>
+					<label for="email">Email:</label> <input type="email" onblur="changeValue(this.id)" id="email">
+				</li>
+				<li>
+					<label for="url">url:</label> <input type="url" onblur="changeValue(this.id)" id="url">
+				</li>
+				<li>
+					<label for="number">number:</label> <input type="number" onblur="changeValue(this.id)" id="number">
+				</li>
+				<li>
+					<label for="range">range:</label> <input type="range" onblur="changeValue(this.id)" id="range">
+				</li>
+				<li>
+					<label for="date">Date pickers:</label> <input type="date" onblur="changeValue(this.id)" id="date">
+				</li>
+				<li>
+					<label for="search">search:</label> <input type="search" onblur="changeValue(this.id)" id="search">
+				</li>
+				<li>
+					<label for="color">color:</label> <input type="color" onblur="changeValue(this.id)" id="color">
+				</li>
+			</ul>
+			<i>点击submit按钮对email和url进行校验</i>
+			<input type="submit" id="submit"/>
+		</form>
+		
+		<ul class="result">
+			<li>
+					<label for="email-val">Email:</label> <span id="email-val"></span>
+				</li>
+				<li>
+					<label for="url-val">url:</label> <span id="url-val"></span>
+				</li>
+				<li>
+					<label for="number-val">number:</label> <span id="number-val"></span>
+				</li>
+				<li>
+					<label for="range-val">range:</label> <span id="range-val"></span>
+				</li>
+				<li>
+					<label for="date-val">Date pickers:</label> <span id="date-val"></span>
+				</li>
+				<li>
+					<label for="search-val">search:</label> <span id="search-val"></span>
+				</li>
+				<li>
+					<label for="color-val">color:</label> <span id="color-val"></span>
+				</li>
+		</ul>
+	</div>
+
+</body>
+</html>
